@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+
+.navBar{
+    grid-column: 1;
+    background-color: blanchedalmond;
+    padding-left: 20px;
+    height: 100vh;
+}
+    .navBar img{
+        width: 30px;
+    }
+    .navBar div{
+        display: flex;
+        font-size: 2.5rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .navText img{
+        margin-right: 10px;
+    }
+    .myProjects img{
+        margin-left: 20px;
+    }
+    #navBarHeader{
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 4rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .myProjects{
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-top: 50px;
+    }
+    .navText{
+        margin-bottom: 10px;
+        max-width: 250px;
+    }
+    .navText:hover{
+        background-color: rgb(252, 211, 150);
+        border: rgb(250, 172, 55);
+        border-radius: 7px;
+        cursor: pointer;
+    }
+.myProjects img:hover{
+        cursor: pointer;
+        background-color: white;
+}
+
+
+
+.contentSection{
+    grid-column: 2;
+    margin-left: 300px;
+    margin-top: 50px;
+}
+    #contentHeader{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 6rem;
+        font-weight: bolder;
+    }
+    .tasks,.tasks span{
+        font-size: 3rem;
+    }
+    .content{
+        display: grid;
+        grid-template-rows: repeat(auto-fit,minmax(100px,1fr));
+        margin-top: 20px;
+    }
+    .taskContent{
+        display: grid;
+        grid-template-columns: 60px 350px 150px;
+        border: 5px solid aqua;
+        background-color: aquamarine;
+        width: fit-content;
+        padding: 10px;
+        border-radius: 20px;
+    }
+    .taskContent p{
+        font-size: 1.8rem;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        text-wrap: wrap;
+    }
+    .taskContent h4{
+        font-size: 2rem;
+    }
+    .completeBtn{
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+    }
+    .priority{
+        color: white;
+        font-weight: bold;
+        background-color: green;
+        text-align: center;
+        width: fit-content;
+        padding: 5px 20px;
+        border-radius: 20px;
+    }
+    .space3 img{
+        width: 25px;
+    }
+    .space3 img:hover{
+        cursor: pointer;
+        background-color: white;
+    }
+    .space1 button:hover{
+        cursor: pointer;
+    }
+    .completeBtn:hover{
+        background-color: greenyellow;
+    }
+    .space1{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .editBtn{
+        width: 50px;
+        height: 30px;
+        border-radius: 10px;
+        font-size: 2rem;
+    }
+    .editBtn:hover{
+        background-color: orange;
+    }
+
