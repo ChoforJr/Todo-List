@@ -1,0 +1,41 @@
+.addProjectDialog{
+    margin:auto;
+    border-radius: 2rem;
+    width: 600px;
+    height: 250px;
+    padding: 10px;
+  }
+.addProjectForm{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.addProjectForm div{
+    padding-bottom: 20px;
+}
+.addProjectForm input,button{
+    font-size: 2.5rem;
+}
+.addProjectForm h4{
+    font-size: 4rem;
+    padding-bottom: 20px;
+}
+.projectModalBtns{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.addProjectForm #projectName{
+    width: 550px;
+    height: auto;
+}
+.addProjectForm button {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+}
+.cancelAddProject:hover{
+    background-color: red;
+}
+.submitProject:hover{
+    background-color: greenyellow;
+}

@@ -1,0 +1,46 @@
+.addTaskDialog{
+    margin:auto;
+    border-radius: 2rem;
+    width: 600px;
+    height: 250px;
+    padding: 10px;
+  }
+.addTaskForm{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.addTaskForm div{
+    padding-bottom: 20px;
+}
+.addTaskForm input,
+textarea,
+select{
+    font-size: 2.5rem;
+}
+.addTaskForm textarea, 
+#taskName{
+    width: 550px;
+    height: auto;
+}
+.addTaskForm button {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 2.5rem;
+}
+.cancelAddTask{
+    margin-left: 20px;
+    margin-right: 100px;
+}
+.cancelAddTask:hover{
+    background-color: red;
+}
+.submitTask:hover{
+    background-color: greenyellow;
+}
+#project{
+    margin-right: 30px;
+    margin-left: 20px;
+}
+#priority{
+    margin-right: 30px;
+}

@@ -14,7 +14,7 @@
                 <div>Add Task</div>
             </div>
             <div class="navText inboxBtn">
-                <img src="../images/inbox.png" alt="inbox">
+                <img src="../images/inbox.png" alt="Inbox">
                 <div>Inbox</div>
             </div>
             <div class="navText todayBtn">
@@ -31,7 +31,7 @@
             </div>
             <div class="myProjects">
                 <div>My Projects</div>
-                <img src="../images/plus.png" alt="Add Projects">
+                <img src="../images/plus.png" alt="Add Projects" class="addingMyProjects">
             </div>
             <div class="navText projects">
                 <img src="../images/arrow-right-circle-outline.png" alt="Project">
@@ -45,5 +45,44 @@
             </div>
         </div>
     </div>
+    
+    <dialog class="addTaskDialog">
+        <form class="addTaskForm">
+                <div>
+                    <input  type="text" id="taskName" name="taskName" placeholder="Task Name" required/>
+                </div>
+                <div>
+                    <textarea name="description" id="description" placeholder="Description"></textarea>
+                </div>
+                <div>
+                    <select name="project" id="project" required>
+                        <option value="Inbox" selected>Inbox</option>
+                        <option value="Workout">Workout</option>
+                    </select>
+                    <select name="priority" id="priority" required>
+                        <option value="Low">LOW</option>
+                        <option value="Medium" selected>MEDIUM</option>
+                        <option value="High">HIGH</option>
+                    </select>
+                    <input  type="date" id="dueDate" name="dueDate"/>
+                </div>
+                <button formmethod="dialog" type="button" class="cancelAddTask">Cancel</button>
+                <button type="button" class="submitTask">Submit</button>
+        </form>
+    </dialog>
+
+    <dialog class="addProjectDialog">
+        <form class="addProjectForm"> 
+            <h4>Add Project</h4>
+            <div>
+                <input type="text" name="projectName" id="projectName" placeholder="Project Name" required>
+            </div>
+            <div class="projectModalBtns">
+                <button formmethod="dialog" type="button" class="cancelAddProject">Cancel</button>
+                <button type="button" class="submitProject">Submit</button>
+            </div>
+        </form>
+    </dialog>
+
 </body>
 </html>

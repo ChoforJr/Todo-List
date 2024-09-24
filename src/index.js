@@ -1,5 +1,11 @@
 import "./styles.css";
-import {taskContent} from "./addTaskToPage.js";
+import "./addTaskModal.css";
+import "./addProjectModal.css";
 
-const content = document.querySelector(".content");
-content.appendChild(taskContent);
+import {addTaskToPage} from "./addTaskToPage.js";
+import {addTaskModal} from "./addTaskModal.js";
+import {addProjectModal} from "./addProjectModal.js";
+
+
+addTaskModal(addTaskToPage);
+addProjectModal();
