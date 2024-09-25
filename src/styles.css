@@ -19,6 +19,7 @@
 }
     .navBar img{
         width: 30px;
+        height: 30px;
     }
     .navBar div{
         display: flex;
@@ -53,6 +54,20 @@
         border: rgb(250, 172, 55);
         border-radius: 7px;
         cursor: pointer;
+    }
+    .projectsContainer{
+        display: flex;
+        flex-direction: column;
+    }
+    .deleteProject{
+        width: 15px;
+        height: 30px;
+    }
+    .projectSpacing{
+        width: 15px;
+    }
+    .deleteProject:hover{
+        background-color: white;
     }
 .myProjects img:hover{
         cursor: pointer;

@@ -39,7 +39,7 @@ export const addTaskToPage = (taskID,tkName,tkDescription,tkDate,tkPriority,tkPr
         project.textContent = `#${tkProject}`;
         const deleteTask = document.createElement("img");
         deleteTask.setAttribute("src", trashCan);
-        deleteTask.setAttribute("alt", "delete Project");
+        deleteTask.setAttribute("alt", "delete task");
 
         if(priority.textContent=="High"){
             priority.style.backgroundColor ="red";
