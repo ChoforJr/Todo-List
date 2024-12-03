@@ -1,12 +1,11 @@
 import trashCan from "../images/trash-can-outline.png";
 import arrow from "../images/arrow-right-circle-outline.png";
 
-export const addProjectToPage = (projectID,pjName) => {
+export const addProjectToPage = (pjName) => {
     const projectsContainer = document.querySelector('.projectsContainer');
 
     const project = document.createElement('div');
         project.classList.add("navText");
-        project.id = `${projectID}`;
 
     const projectBullet = document.createElement('img');
         projectBullet.setAttribute("src", arrow);

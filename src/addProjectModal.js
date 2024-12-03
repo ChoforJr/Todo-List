@@ -1,7 +1,8 @@
-export const addProjectModal = (push) => {
+
+export const addProjectModal = (pushToPage) => {
     const addingMyProjects = document.querySelector(".addingMyProjects");
     const addProjectDialog = document.querySelector(".addProjectDialog");
-    const addProjectForm = document.querySelector(".addProjectForm");
+    // const addProjectForm = document.querySelector(".addProjectForm");
     
     const cancelAddProject = document.querySelector(".cancelAddProject");
     const submitProject = document.querySelector(".submitProject");
@@ -17,14 +18,13 @@ export const addProjectModal = (push) => {
         addProjectDialog.close();
     })
     submitProject.addEventListener("click",()=>{
-        const projectID = Math.floor(Math.random() * 90) + 10;
 
         if (projectName.value.trim() === '') {
             alert('Please fill out the input field!');
             return;
         }
         
-        push(`${projectID}`,`${projectName.value}`);
+        pushToPage(`${projectName.value}`);
 
         projectName.value = '';
 
