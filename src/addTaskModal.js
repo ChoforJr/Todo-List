@@ -1,7 +1,7 @@
 
 import { format, compareAsc, differenceInDays } from 'date-fns';
 
-export const addTaskModal = (pushToPage,pushToStorage) => {
+export const addTaskModal = (addTaskToPage,pushToStorage) => {
     const addTask = document.querySelector(".addTaskBtn");
     const addTaskDialog = document.querySelector(".addTaskDialog");
     // const addTaskForm = document.querySelector(".addTaskForm");
@@ -64,7 +64,7 @@ export const addTaskModal = (pushToPage,pushToStorage) => {
         // pushToStorage(taskID,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
 
 
-        pushToPage(`${taskID}`,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
+        addTaskToPage(`${taskID}`,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
 
         taskName.value = '';
         description.value = '';

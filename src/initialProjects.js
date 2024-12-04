@@ -8,7 +8,7 @@ export const initialProjects = (addProjectToPage) => {
             task:[
                 {
                     title:"Workout",
-                    description:"workout from Monday to Friday and rest on sunday",
+                    description:"workout from Monday to Friday and rest on the weekends",
                     dueDate: today,
                     project:"Unknown",
                     priority:"High",

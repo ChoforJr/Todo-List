@@ -12,5 +12,6 @@ import {initialProjects} from "./initialProjects.js";
 initialProjects(addProjectToPage);
 
 
+
 addTaskModal(addTaskToPage);
 addProjectModal(addProjectToPage);

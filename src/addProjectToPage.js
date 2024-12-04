@@ -1,7 +1,12 @@
 import trashCan from "../images/trash-can-outline.png";
 import arrow from "../images/arrow-right-circle-outline.png";
 
+import {addTaskToPage} from "./addTaskToPage.js";
+import {headerAndTaskNumber} from "./headerAndTaskNumber.js";
+
 export const addProjectToPage = (pjName) => {
+    const content = document.querySelector(".content");
+
     const projectsContainer = document.querySelector('.projectsContainer');
 
     const project = document.createElement('div');
@@ -21,6 +26,24 @@ export const addProjectToPage = (pjName) => {
         deleteProject.setAttribute("src", trashCan);
         deleteProject.setAttribute("alt", "delete Project");
         deleteProject.classList.add("deleteProject");
+
+    const addTaskFunction = ()=>{
+        content.textContent = '';
+        
+        const localKey = localStorage.getItem(`${pjName}`);
+        const obj = JSON.parse(localKey);
+        const taskArray = obj.task;
+
+        headerAndTaskNumber(`${obj.name}`,`${obj.task.length}`);
+
+        taskArray.forEach((element) => {
+            addTaskToPage(`${element.taskID}`,`${element.title}`,`${element.description}`,`${element.dueDate}`,`${element.priority}`,`${element.project}`);
+        });
+    };
+
+    projectName.addEventListener("click",addTaskFunction);
+    projectBullet.addEventListener("click",addTaskFunction);
+    spacing.addEventListener("click",addTaskFunction);
 
     project.appendChild(projectBullet);
     project.appendChild(projectName);
