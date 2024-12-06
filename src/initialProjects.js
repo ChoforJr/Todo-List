@@ -3,7 +3,7 @@ import { format} from 'date-fns';
 export const initialProjects = (addProjectToPage) => {
     if (!localStorage.getItem("Unknown")){
         const today = format(new Date(), "yyyy-MM-dd");
-        let firstProject = {
+        const firstProject = {
             name:"Unknown",
             task:[
                 {
@@ -31,7 +31,7 @@ export const initialProjects = (addProjectToPage) => {
     
     if (!localStorage.getItem("Study")){
         const today = format(new Date(), "yyyy-MM-dd");
-        let secondProject = {
+        const secondProject = {
             name:"Study",
             task:[
                 {

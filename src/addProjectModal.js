@@ -1,5 +1,5 @@
 
-export const addProjectModal = (pushToPage) => {
+export const addProjectModal = (addProjectToPage,storeProject) => {
     const addingMyProjects = document.querySelector(".addingMyProjects");
     const addProjectDialog = document.querySelector(".addProjectDialog");
     // const addProjectForm = document.querySelector(".addProjectForm");
@@ -24,7 +24,20 @@ export const addProjectModal = (pushToPage) => {
             return;
         }
         
-        pushToPage(`${projectName.value}`);
+        const lowerCaseProjectName = projectName.value.toLowerCase();
+
+        for (let i=0; i<localStorage.length;i++){
+            const key = localStorage.key(i);
+            const lowerCaseKey = key.toLowerCase();
+            if (lowerCaseKey === lowerCaseProjectName){
+                alert ('This name is taken, Please use another name for your project');
+                return;
+            }
+        }
+        
+        addProjectToPage(`${projectName.value}`);
+
+        storeProject(`${projectName.value}`);
 
         projectName.value = '';
 

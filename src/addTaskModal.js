@@ -1,7 +1,7 @@
 
 import { format, compareAsc, differenceInDays } from 'date-fns';
 
-export const addTaskModal = (addTaskToPage,pushToStorage) => {
+export const addTaskModal = (addTaskToPage,storeTask) => {
     const addTask = document.querySelector(".addTaskBtn");
     const addTaskDialog = document.querySelector(".addTaskDialog");
     // const addTaskForm = document.querySelector(".addTaskForm");
@@ -15,16 +15,38 @@ export const addTaskModal = (addTaskToPage,pushToStorage) => {
     const priority = document.querySelector("#priority");
     const dueDate = document.querySelector("#dueDate");
 
+    const selectElement = document.querySelector("#project");
+
+    const optionsArray = [];
+
+    for (let i=0; i<localStorage.length;i++){
+        const key = localStorage.key(i);
+        optionsArray.push(key);
+    }
+
     addTask.addEventListener("click",()=>{
+
+        while (selectElement.firstChild) {
+            selectElement.removeChild(selectElement.firstChild);
+        }
+
+        optionsArray.forEach(option => {
+            const newOption = document.createElement('option');
+            newOption.value = option;
+            newOption.text = option;
+            selectElement.appendChild(newOption);
+        });
+
         addTaskDialog.showModal();
     });
   
     cancelAddTask.addEventListener("click",()=>{
         taskName.value = '';
         description.value = '';
-        project.value = 'Unknown';
+        project.value = `${optionsArray[0]}`;
         priority.value = 'Medium';
         dueDate.value = null;
+
         addTaskDialog.close();
     });
     
@@ -61,18 +83,19 @@ export const addTaskModal = (addTaskToPage,pushToStorage) => {
         // }
 
 
-        // pushToStorage(taskID,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
+        // storeTask(taskID,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
 
 
         addTaskToPage(`${taskID}`,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
 
         taskName.value = '';
         description.value = '';
-        project.value = 'Unknown';
+        project.value = `${optionsArray[0]}`;
         priority.value = 'Medium';
         dueDate.value = null;
 
         addTaskDialog.close();
+
     });
 };
 
