@@ -34,7 +34,7 @@ export const addProjectToPage = (pjName) => {
         const obj = JSON.parse(localKey);
         const taskArray = obj.task;
 
-        headerAndTaskNumber(`${obj.name}`,`${obj.task.length}`);
+        headerAndTaskNumber(`${obj.name}`,`${taskArray.length}`);
 
         taskArray.forEach((element) => {
             addTaskToPage(`${element.taskID}`,`${element.title}`,`${element.description}`,`${element.dueDate}`,`${element.priority}`,`${element.project}`);

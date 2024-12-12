@@ -2,7 +2,6 @@
 export const addProjectModal = (addProjectToPage,storeProject) => {
     const addingMyProjects = document.querySelector(".addingMyProjects");
     const addProjectDialog = document.querySelector(".addProjectDialog");
-    // const addProjectForm = document.querySelector(".addProjectForm");
     
     const cancelAddProject = document.querySelector(".cancelAddProject");
     const submitProject = document.querySelector(".submitProject");

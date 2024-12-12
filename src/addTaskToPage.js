@@ -4,6 +4,17 @@ import trashCan from "../images/trash-can-outline.png";
 export const addTaskToPage = (taskID,tkName,tkDescription,tkDate,tkPriority,tkProject) => {
     const content = document.querySelector(".content");
 
+
+
+    const localKey = localStorage.getItem(`${tkProject}`);
+    const obj = JSON.parse(localKey);
+    const taskArray = obj.task;
+    const taskNumber = document.querySelector("#tasksNumber");
+    taskNumber.textContent = `${taskArray.length}`;
+
+
+
+
     const taskContent = document.createElement("div");
     taskContent.classList.add("taskContent");
     taskContent.id = `${taskID}`;

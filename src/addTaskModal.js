@@ -1,10 +1,12 @@
 
 import { format, compareAsc, differenceInDays } from 'date-fns';
 
+
 export const addTaskModal = (addTaskToPage,storeTask) => {
+    const contentHeader = document.querySelector("#contentHeader");
+
     const addTask = document.querySelector(".addTaskBtn");
     const addTaskDialog = document.querySelector(".addTaskDialog");
-    // const addTaskForm = document.querySelector(".addTaskForm");
     
     const cancelAddTask = document.querySelector(".cancelAddTask");
     const submitTask = document.querySelector(".submitTask");
@@ -23,6 +25,7 @@ export const addTaskModal = (addTaskToPage,storeTask) => {
         const key = localStorage.key(i);
         optionsArray.push(key);
     }
+
 
     addTask.addEventListener("click",()=>{
 
@@ -82,11 +85,13 @@ export const addTaskModal = (addTaskToPage,storeTask) => {
         //     isThisWeek = false;
         // }
 
+       
+        storeTask(taskID,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
 
-        // storeTask(taskID,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
-
-
+       if(contentHeader.textContent === `${project.value}`){
         addTaskToPage(`${taskID}`,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
+       }
+
 
         taskName.value = '';
         description.value = '';
