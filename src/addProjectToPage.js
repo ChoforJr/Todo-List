@@ -41,9 +41,30 @@ export const addProjectToPage = (pjName) => {
         });
     };
 
+
     projectName.addEventListener("click",addTaskFunction);
     projectBullet.addEventListener("click",addTaskFunction);
     spacing.addEventListener("click",addTaskFunction);
+
+
+    const removeProjectFunction = ()=>{
+        const contentHeader = document.querySelector("#contentHeader");
+        if(contentHeader.textContent === `${pjName}`){
+            content.textContent = '';
+        }
+        
+        projectName.removeEventListener("click",addTaskFunction);
+        projectBullet.removeEventListener("click",addTaskFunction);
+        spacing.removeEventListener("click",addTaskFunction);
+
+        localStorage.removeItem(`${pjName}`);
+
+        projectsContainer.removeChild(project);
+    };
+
+
+    deleteProject.addEventListener("click",removeProjectFunction);
+
 
     project.appendChild(projectBullet);
     project.appendChild(projectName);

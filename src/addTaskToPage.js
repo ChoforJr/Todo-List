@@ -5,14 +5,11 @@ export const addTaskToPage = (taskID,tkName,tkDescription,tkDate,tkPriority,tkPr
     const content = document.querySelector(".content");
 
 
-
     const localKey = localStorage.getItem(`${tkProject}`);
     const obj = JSON.parse(localKey);
     const taskArray = obj.task;
     const taskNumber = document.querySelector("#tasksNumber");
     taskNumber.textContent = `${taskArray.length}`;
-
-
 
 
     const taskContent = document.createElement("div");
@@ -21,33 +18,43 @@ export const addTaskToPage = (taskID,tkName,tkDescription,tkDate,tkPriority,tkPr
     
     const space1 = document.createElement("div");
     space1.classList.add("space1");
+
         const completeBtn = document.createElement("button");
         completeBtn.classList.add("completeBtn");
+
         const editBtn = document.createElement("button");
         editBtn.classList.add("editBtn");
         editBtn.textContent = "Edit";
+
     space1.appendChild(completeBtn);
     space1.appendChild(editBtn);
     
     const space2 = document.createElement("div");
     space2.classList.add("space2");
+
         const taskName = document.createElement("h4");
         taskName.textContent = `${tkName}`;
+
         const description = document.createElement("p");
         description.textContent = `${tkDescription}`;
+
         const date = document.createElement("h4");
         date.textContent = `${tkDate}`;
+
     space2.appendChild(taskName);
     space2.appendChild(description);
     space2.appendChild(date);
     
     const space3 = document.createElement("div");
     space3.classList.add("space3");
+
         const priority = document.createElement("h4");
         priority.classList.add("priority");
         priority.textContent = `${tkPriority}`;
+
         const project = document.createElement("p");
         project.textContent = `#${tkProject}`;
+
         const deleteTask = document.createElement("img");
         deleteTask.setAttribute("src", trashCan);
         deleteTask.setAttribute("alt", "delete task");
@@ -59,9 +66,57 @@ export const addTaskToPage = (taskID,tkName,tkDescription,tkDate,tkPriority,tkPr
             priority.style.backgroundColor ="yellow";
         }
         
+  
+
+    const removeTaskFunction = ()=>{
+        const localKey2 = localStorage.getItem(`${tkProject}`);
+        const obj2 = JSON.parse(localKey2);
+        const taskArray2 = obj2.task;
+
+        taskArray2.forEach((element,index) => {
+            if(element.completed === true){
+                taskArray2.splice(index, 1);
+                return;
+            }
+            if(element.taskID == taskID){
+                taskArray2.splice(index, 1);
+            }
+        });
+        localStorage.setItem(`${tkProject}`,JSON.stringify(obj2));
+        content.removeChild(taskContent);
+
+        const taskNumber2 = document.querySelector("#tasksNumber");
+        taskNumber2.textContent = `${taskArray2.length}`;
+    };
+
+
+
+    deleteTask.addEventListener("click",removeTaskFunction);
+
+
+    completeBtn.addEventListener("click",()=>{
+        const localKey2 = localStorage.getItem(`${tkProject}`);
+        const obj2 = JSON.parse(localKey2);
+        const taskArray2 = obj2.task;
+
+        taskArray2.forEach((element,index) => {
+            if(element.taskID == taskID){
+                element.completed = true;
+                alert("Task Completed");
+                return;
+            }
+        });
+        localStorage.setItem(`${tkProject}`,JSON.stringify(obj2));
+    });
+
+
+    completeBtn.addEventListener("click",removeTaskFunction);
+
+
     space3.appendChild(priority);
     space3.appendChild(project);
     space3.appendChild(deleteTask);
+    
     
     taskContent.appendChild(space1);
     taskContent.appendChild(space2);

@@ -17,27 +17,21 @@ export const addTaskModal = (addTaskToPage,storeTask) => {
     const priority = document.querySelector("#priority");
     const dueDate = document.querySelector("#dueDate");
 
-    const selectElement = document.querySelector("#project");
-
-    const optionsArray = [];
-
-    for (let i=0; i<localStorage.length;i++){
-        const key = localStorage.key(i);
-        optionsArray.push(key);
-    }
-
 
     addTask.addEventListener("click",()=>{
+        const selectElement = document.querySelector("#project");
 
         while (selectElement.firstChild) {
             selectElement.removeChild(selectElement.firstChild);
         }
 
-        optionsArray.forEach(option => {
-            const newOption = document.createElement('option');
-            newOption.value = option;
-            newOption.text = option;
-            selectElement.appendChild(newOption);
+        const storedKeys = Object.keys(localStorage);
+
+        storedKeys.forEach(key => {
+        const option = document.createElement('option');
+        option.value = key;
+        option.textContent = key;
+        selectElement.appendChild(option);
         });
 
         addTaskDialog.showModal();
@@ -46,7 +40,6 @@ export const addTaskModal = (addTaskToPage,storeTask) => {
     cancelAddTask.addEventListener("click",()=>{
         taskName.value = '';
         description.value = '';
-        project.value = `${optionsArray[0]}`;
         priority.value = 'Medium';
         dueDate.value = null;
 
@@ -89,13 +82,12 @@ export const addTaskModal = (addTaskToPage,storeTask) => {
         storeTask(taskID,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
 
        if(contentHeader.textContent === `${project.value}`){
-        addTaskToPage(`${taskID}`,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
+        addTaskToPage(taskID,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
        }
 
 
         taskName.value = '';
         description.value = '';
-        project.value = `${optionsArray[0]}`;
         priority.value = 'Medium';
         dueDate.value = null;
 
