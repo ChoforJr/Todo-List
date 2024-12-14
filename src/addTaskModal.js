@@ -1,6 +1,5 @@
 
-import { format, compareAsc, differenceInDays } from 'date-fns';
-
+import { format} from 'date-fns';
 
 export const addTaskModal = (addTaskToPage,storeTask) => {
     const contentHeader = document.querySelector("#contentHeader");
@@ -61,24 +60,7 @@ export const addTaskModal = (addTaskToPage,storeTask) => {
         if (dueDate.value.trim() == '') {
             dueDate.value = today;
         }
-        
-        // const isTodayCompare = compareAsc(dueDate.value, today);
-        // let isToday;
-        // if (isTodayCompare ==0) {
-        //     isToday = true;
-        // }else{
-        //     isToday = false;
-        // }
-
-        // const isInNext7Days = differenceInDays(dueDate.value, today);
-        // let isThisWeek;
-        // if (0 < isInNext7Days <= 7){
-        //     isThisWeek = true;
-        // }else{
-        //     isThisWeek = false;
-        // }
-
-       
+    
         storeTask(taskID,`${taskName.value}`,`${description.value}`,`${dueDate.value}`,`${priority.value}`,`${project.value}`);
 
        if(contentHeader.textContent === `${project.value}`){
@@ -95,7 +77,3 @@ export const addTaskModal = (addTaskToPage,storeTask) => {
 
     });
 };
-
-
-
-

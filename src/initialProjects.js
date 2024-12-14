@@ -36,7 +36,7 @@ export const initialProjects = (addProjectToPage) => {
             task:[
                 {
                     title:"Javascript Course",
-                    description:"Complete it by the 15th of December 2024",
+                    description:"Complete it by the 10th of January 2025",
                     dueDate: today,
                     project:"Study",
                     priority:"High",
@@ -45,7 +45,7 @@ export const initialProjects = (addProjectToPage) => {
                 },
                 {
                     title:"Odin Project",
-                    description:"Finish the Odin project by 20th of January 2025",
+                    description:"Finish the Odin project by 25th of February 2025",
                     dueDate: today,
                     project:"Study",
                     priority:"High",
