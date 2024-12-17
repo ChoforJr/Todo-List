@@ -1,4 +1,6 @@
 import { format} from 'date-fns';
+import {headerAndTaskNumber} from "./headerAndTaskNumber.js";
+import {addTaskToPage} from "./addTaskToPage.js";
 
 export const initialProjects = (addProjectToPage) => {
     if (!localStorage.getItem("Unknown")){
@@ -62,5 +64,15 @@ export const initialProjects = (addProjectToPage) => {
       
         addProjectToPage(`${key}`);
       
-      }
+    }
+
+    const localKey = localStorage.getItem("Unknown");
+    const obj = JSON.parse(localKey);
+    const taskArray = obj.task;
+
+    headerAndTaskNumber(`${obj.name}`,`${taskArray.length}`);
+
+    taskArray.forEach((element) => {
+        addTaskToPage(`${element.taskID}`,`${element.title}`,`${element.description}`,`${element.dueDate}`,`${element.priority}`,`${element.project}`);
+    });
 };
