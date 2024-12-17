@@ -16,6 +16,5 @@ export const storeTask = (taskID,taskName,description, dueDate, priority, projec
   taskArray.push(task);
   localStorage.setItem(`${project}`,JSON.stringify(obj));
 
-
   }
   

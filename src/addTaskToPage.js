@@ -1,9 +1,9 @@
 
 import trashCan from "../images/trash-can-outline.png";
+import {editTaskModal} from "./editTaskModal.js";
 
 export const addTaskToPage = (taskID,tkName,tkDescription,tkDate,tkPriority,tkProject) => {
     const content = document.querySelector(".content");
-
 
     const localKey = localStorage.getItem(`${tkProject}`);
     const obj = JSON.parse(localKey);
@@ -99,7 +99,7 @@ export const addTaskToPage = (taskID,tkName,tkDescription,tkDate,tkPriority,tkPr
         const obj2 = JSON.parse(localKey2);
         const taskArray2 = obj2.task;
 
-        taskArray2.forEach((element,index) => {
+        taskArray2.forEach((element) => {
             if(element.taskID == taskID){
                 element.completed = true;
                 alert("Task Completed");
@@ -111,6 +111,27 @@ export const addTaskToPage = (taskID,tkName,tkDescription,tkDate,tkPriority,tkPr
 
 
     completeBtn.addEventListener("click",removeTaskFunction);
+
+
+    editBtn.addEventListener("click",()=> {
+        const selectElement = document.querySelector("#editProject");
+        const editTaskDialog = document.querySelector(".editTaskDialog");
+
+        while (selectElement.firstChild) {
+            selectElement.removeChild(selectElement.firstChild);
+        }
+
+        const storedKeys = Object.keys(localStorage);
+
+        storedKeys.forEach(key => {
+        const option = document.createElement('option');
+        option.value = key;
+        option.textContent = key;
+        selectElement.appendChild(option);
+        });
+
+        editTaskModal(editTaskDialog,tkName,tkDescription,tkDate,tkPriority,tkProject,taskName,description,date,priority,project,taskID,taskContent);
+    });
 
 
     space3.appendChild(priority);

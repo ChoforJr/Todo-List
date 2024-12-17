@@ -60,6 +60,29 @@
                 <button type="button" class="submitTask">Submit</button>
         </form>
     </dialog>
+    <dialog class="editTaskDialog">
+        <form class="editTaskForm">
+                <div>
+                    <input  type="text" id="editTaskName" name="editTaskName" placeholder="Edit Task Name" required/>
+                </div>
+                <div>
+                    <textarea name="editDescription" id="editDescription" placeholder="Edit Description"></textarea>
+                </div>
+                <div>
+                    <select name="editProject" id="editProject" required>
+                        
+                    </select>
+                    <select name="editPriority" id="editPriority" required>
+                        <option value="Low">LOW</option>
+                        <option value="Medium" selected>MEDIUM</option>
+                        <option value="High">HIGH</option>
+                    </select>
+                    <input  type="date" id="editDueDate" name="editDueDate"/>
+                </div>
+                <button formmethod="dialog" type="button" class="cancelEditTask">Cancel</button>
+                <button type="button" class="submitChanges">Save Changes</button>
+        </form>
+    </dialog>
 
     <dialog class="addProjectDialog">
         <form class="addProjectForm"> 

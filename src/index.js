@@ -1,6 +1,7 @@
 import "./styles.css";
 import "./addTaskModal.css";
 import "./addProjectModal.css";
+import "./editTaskModal.css";
 
 import {addTaskToPage} from "./addTaskToPage.js";
 import {addTaskModal} from "./addTaskModal.js";
@@ -21,3 +22,4 @@ next7DaysTask(addTaskToPage);
 addTaskModal(addTaskToPage,storeTask);
 
 addProjectModal(addProjectToPage,storeProject);
+

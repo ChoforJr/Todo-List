@@ -1,0 +1,46 @@
+.editTaskDialog{
+    margin:auto;
+    border-radius: 2rem;
+    width: 600px;
+    height: 250px;
+    padding: 10px;
+  }
+.editTaskForm{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.editTaskForm div{
+    padding-bottom: 20px;
+}
+.editTaskForm input,
+textarea,
+select{
+    font-size: 2.5rem;
+}
+.editTaskForm textarea, 
+#editTaskName{
+    width: 550px;
+    height: auto;
+}
+.editTaskForm button {
+    width: 180px;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 2.5rem;
+}
+.cancelEditTask{
+    margin-left: 20px;
+    margin-right: 100px;
+}
+.cancelEditTask:hover{
+    background-color: red;
+}
+.submitChanges:hover{
+    background-color: greenyellow;
+}
+#editProject{
+    margin-right: 30px;
+    margin-left: 20px;
+}
+#editPriority{
+    margin-right: 30px;
+}
